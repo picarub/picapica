@@ -4,6 +4,7 @@
   "description": "_",
   "main": "index.js",
   "scripts": {
+    "start":"npm install && npm run dev && node app",
     "product": "webpack -p",
     "dev": "webpack -d",
     "watch": "webpack -d --watch",
