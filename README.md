@@ -8,4 +8,3 @@ npm run dev
 node app
 
 Finally open your browser to: 127.0.0.1  (by default using port 80)
-
