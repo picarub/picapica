@@ -20,11 +20,13 @@
     "css-loader": "*",
     "extract-text-webpack-plugin": "^3.0.0",
     "file-loader": "^0.11.2",
+    "less": "^2.7.2",
+    "less-loader": "^4.0.5",
     "url-loader": "^0.5.9",
     "vue-html-loader": "^1.2.4",
     "vue-loader": "^13.3.0",
-    "vue-template-compiler": "^2.5.1",
-    "webpack": "^3.4.1"
+    "vue-template-compiler": "*",
+    "webpack": "*"
   },
   "dependencies": {
     "express": "^4.16.2"
