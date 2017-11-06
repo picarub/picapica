@@ -1,10 +1,10 @@
 <template>
  <div style='margin:0 auto;max-width: 640px;text-align:center'>
-  <transition-group appear tag='div' appear-active-class='animated flipInX' enter-active-class='animated flipInX' style='margin:0 auto;padding:0;'>
-   <div v-for='(ea, i) in list' :key='ea.songID' class='visible-xs' style='background-color: #fff;margin:.5em .3em;padding:0;border-radius:.35em;box-shadow: .2em .2em .4em #c5c5c5'>
-    <div class='row' style='align-items:center'>
-     <div class='col-3 sm-2 hvr-grow' style='position:relative;' @click='playplay(ea.url, i)'>
-      <div class='right' style='position:absolute; width:50%;max-width:120px;right:.1em;bottom:.25em;color: rgba(255,255,255,.9);font-size: 2em'><i v-show='!show[i]' style='display: block' class='fa fa-play'/></div>    
+  <transition-group appear tag='div' appear-active-class='animated flipInX' enter-active-class='animated flipInX' style='margin:0 auto;'>
+   <div v-for='(ea, i) in list' :key='ea.songID' class='visible-xs rounded' style='background-color: #fff;margin:.5em .3em;box-shadow: .2em .2em .4em #c5c5c5'>
+    <div class='row' style='align-items:center;'>
+     <div class='col-3 sm-2 hvr-grow' style='position:relative;margin:0 0 -.3em' @click='playplay(ea.url, i)'>
+      <div class='right' style='position:absolute; width:50%;right:.1em;bottom:.25em;color: rgba(255,255,255,.9);'><i v-show='!show[i]' style='display: block' class='fa fa-play fa-2x'/></div>    
       <div v-if='show[i]' class='line-scale-party' style='position:absolute;right: .1em;bottom: .1em'>
        <div></div><div></div><div></div><div></div>
       </div>  
