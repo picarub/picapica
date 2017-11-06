@@ -30,36 +30,36 @@ export default {
  },
  methods: {
   /* get input value and current pathname then request server for data */
- 	searchit: function(){
+  searchit: function(){
    let q = this.value.trim()
    let loc = this.$route.path
    let url = ''
    if (loc==='/music') {
     url = '/a/find?keyword=' + q
-   	Vue.gofetch(url, 'SONG')
-    this.value = ''
+    Vue.gofetch(url, 'SONG')
+    return this.value = ''
    }
    if (loc==='/idolpost') {
     url = '/a/find?timeline=' + q
-   	Vue.gofetch(url, 'IDOL_POST',1)
-    this.value = ''
+    Vue.gofetch(url, 'IDOL_POST',1)
+    return this.value = ''
    }
    if (loc==='/idol') {
     url = '/a/find?member=' + q
-   	Vue.gofetch(url, 'IDOL')
-    this.value = ''
+    Vue.gofetch(url, 'IDOL')
+    return this.value = ''
    }
    if (loc==='/mv') {
     url = '/a/find?yt=' + q
-   	Vue.gofetch(url, 'TUBE',1)
-    this.value = ''
+    Vue.gofetch(url, 'TUBE',1)
+    return this.value = ''
    }
    if (loc==='/video') {
     url = '/a/find?dm=' + q
-   	Vue.gofetch(url, 'MOTION',1)
-    this.value = ''
+    Vue.gofetch(url, 'MOTION',1)
+    return this.value = ''
    }
- 	}
+  }
  }
 }
 
