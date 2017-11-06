@@ -49,14 +49,14 @@ export default {
  name: 'musicbar',
  props: ['playplay','show'],
  data(){
- 	return {
- 	 orig: this.$store.getters.ALL_SONG,
+  return {
+   orig: this.$store.getters.ALL_SONG,
    list: this.$store.getters.ALL_SONG,
    stream: true, 
    css: {
     tof: 'white-space: nowrap;text-overflow: ellipsis;overflow: hidden;'
    }
- 	}
+  }
  },
  mounted: function(){
 //  console.log(navigator.userAgent)

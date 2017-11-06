@@ -9,7 +9,7 @@ import Idolpost from './components/Idolpost.vue'
 //import Tube from './vue/Tube.vue'
 //import Motion from './vue/Motion.vue'
 
-const Home = { template: "<div style='margin:1rem auto;max-width:1200px;text-align:center;'><router-view></router-view></div>" }
+const Home = { template: "<div style='margin:1em auto;max-width:1200px;text-align:center;'><router-view></router-view></div>" }
 const Default = { template: "<div class='page'>coming soon ...</div>" }
 
 
@@ -22,10 +22,10 @@ const router = new VueRouter({
   {path: '/', component: Home,
    children: [
     { path:'', component: Default },
-     { path: 'music', component: Musicbox },
-     { path: 'idolpost', component: Idolpost },
-     { path: 'mv', component: Default }, /* This component is not ready for github */
-     { path: 'video', component: Default }  /* This component is not ready for github */
+    { path: 'music', component: Musicbox },
+    { path: 'idolpost', component: Idolpost },
+    { path: 'mv', component: Default }, /* This component is not ready for github */
+    { path: 'video', component: Default }  /* This component is not ready for github */
    ]	
   }
  ]
@@ -57,7 +57,7 @@ Vue.gofetch = (url, name, is_reverse) => {
 new Vue({
   store,
   router,
-  components: { headbar: Headbar },
+  components: { Headbar },
   mounted: function(){
    /* get data from server when created */
    Vue.gofetch('/a/find?keyword=ok','SONG')
@@ -65,10 +65,10 @@ new Vue({
    this.$router.push('music') 
   },
   template: `
-    <div id='root'>
-      <headbar/>
-      <router-view></router-view>
-    </div>
+   <div id='root'>
+    <headbar/>
+    <router-view></router-view>
+   </div>
   `
 }).$mount('#root')
 

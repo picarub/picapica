@@ -2,8 +2,8 @@
   <div class='row page' style="justify-content:center;">
     <div class='sm-1 md-2 lg-3 invisible-xs visible-xl' style='margin:.75em 0;padding:0 1em;'>
      <div style='background: #fff;padding: .5em;border: solid 1px #eee'>
-      <a href='/jpop' class='hvr-grow'><img src='http://www.at-x.com/images/program/fdaccd90caae36823ecb25a795e9c5b2.jpg' style='width: 100%'></a>
-      <a href='/jpop'><img class='hvr-grow' src='http://umaru-ani.me/img/story/2zTjDheu/img01.jpg' style='width: 100%'></a>
+      <a href='/jpop'><img src='http://www.at-x.com/images/program/fdaccd90caae36823ecb25a795e9c5b2.jpg' style='width: 100%'></a>
+      <a href='/jpop'><img src='http://umaru-ani.me/img/story/2zTjDheu/img01.jpg' style='width: 100%'></a>
      </div>
     </div>
     <div class='col-12 sm-10 md-8 lg-6 center'>

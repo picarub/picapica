@@ -1,7 +1,7 @@
 <template>
  <div :class='c' :style='s'>
   <div style='margin:0 auto; padding: .3em 0 0; max-width: 16em; position: relative;width: 100%;height: 3em'>
-   <i class='fa fa-search' style='margin: .75em 0 0;padding: 0;position: absolute;right: 0;color:#bbb' @click.prevent='searchit'></i>
+   <i class='fa fa-search hvr-grow' style='margin: .75em 0 0;padding: 0;position: absolute;right: 0;color:#bbb' @click.prevent='searchit'></i>
    <input class='search' type='text' style='width: 100%;height: 2.5em;margin: 0;padding: 0 .5em;border-radius:.5em;border:solid 1px #ccc; -webkit-appearance:none;' :placeholder='placeholder' v-model='value' @keyup.enter.prevent='searchit'/>
   </div>
  </div>
