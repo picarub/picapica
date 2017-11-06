@@ -25,10 +25,11 @@
     "url-loader": "^0.5.9",
     "vue-html-loader": "^1.2.4",
     "vue-loader": "^13.3.0",
-    "vue-template-compiler": "*",
+    "vue-template-compiler": "^2.5.2",
     "webpack": "*"
   },
   "dependencies": {
-    "express": "^4.16.2"
+    "express": "^4.16.2",
+    "vue": "^2.5.2"
   }
 }
