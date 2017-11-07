@@ -1,7 +1,7 @@
 <template>
  <div style='margin:0 auto;max-width: 640px;text-align:center'>
   <transition-group appear tag='div' appear-active-class='animated flipInX' enter-active-class='animated flipInX' style='margin:0 auto;'>
-   <div v-for='(ea, i) in list' :key='ea.songID' class='visible-xs rounded' style='background-color: #fff;margin:.5em .3em;box-shadow: .2em .2em .4em #c5c5c5'>
+   <div v-for='(ea, i) in list' :key='ea.songID' class='visible-xs rounded' style='background-color: #fff;margin:.6em .3em;box-shadow: .2em .2em .4em #c5c5c5'>
     <div class='row' style='align-items:center;'>
      <div class='col-3 sm-2 hvr-grow' style='position:relative;margin:0 0 -.3em' @click='playplay(ea.url, i)'>
       <div class='right' style='position:absolute; width:50%;right:.1em;bottom:.25em;color: rgba(255,255,255,.9);'><i v-show='!show[i]' style='display: block' class='fa fa-play fa-2x'/></div>    
@@ -46,12 +46,12 @@
 
 <script>
 export default {
- name: 'musicbar',
- props: ['playplay','show'],
+ name: 'music-bar',
+ props: ['playplay','show'],   /* 从父组件获取props */
  data(){
   return {
-   orig: this.$store.getters.ALL_SONG,
-   list: this.$store.getters.ALL_SONG,
+   orig: this.$store.getters.ALL_SONG,  /* 从vuex中获取的初始数组 */
+   list: this.$store.getters.ALL_SONG,  /* 实际渲染数组，根据$watch自动变化 */
    stream: true, 
    css: {
     tof: 'white-space: nowrap;text-overflow: ellipsis;overflow: hidden;'
@@ -62,7 +62,7 @@ export default {
 //  console.log(navigator.userAgent)
  },
  watch: {
-  orig: function(){
+  orig: function(){   /* avoid duplicate items | 去除重复的数据子集 */
    this.list = this.orig.filter(function(item, index, self) {
     return self.findIndex(function(t){ return t.songID === item.songID }) === index
    })

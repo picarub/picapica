@@ -32,17 +32,17 @@
 import { urlrify } from '../store/util'
 import Search from './Search.vue'
 export default {
- name: 'akbpost',
+ name: 'idol-post',
  components: { search: Search },
  data() {
   return {
-   orig: this.$store.getters.ALL_IDOL_POST,
-   list: this.$store.getters.ALL_IDOL_POST,
-   now: moment()
+   orig: this.$store.getters.ALL_IDOL_POST,   /* 从vuex中获取的初始数组 */
+   list: this.$store.getters.ALL_IDOL_POST,   /* 实际渲染数组，根据$watch自动变化 */
+   now: moment()  /* 组件创建时时刻，即现在 */
   }
  },
  watch: {
-  orig: function(){
+  orig: function(){   /* avoid duplicate items | 去除重复的数据子集 */
    this.list = this.orig.filter(function(item, index, self) {
     return self.findIndex(function(t){ return t.post_id === item.post_id }) === index
    })
@@ -50,10 +50,10 @@ export default {
  },
  methods: {
   timetonow: function(t){
-   return moment(t).from(this.now)
+   return moment(t).from(this.now)  /* 现在离t的时间距离 */
   },
   htmlstr: function(s){
-   return urlrify(s) 	 
+   return urlrify(s) 	 /* 返回innerHTML数据 */
   },
   likeit: function(l){
    console.log('i like this picture : ' + l)

@@ -22,12 +22,7 @@
 <script>
 import Search from './Search.vue'
 export default {
- name: 'headbar',
- data () {
-  return {
-    msg: 'non'
-  }
- },
+ name: 'head-bar',
  components: { Search }
 }
 </script>

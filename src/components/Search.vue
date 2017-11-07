@@ -18,8 +18,7 @@ export default {
   }
  },
  created: function(){
-  /* set search input placeholder properly per second */
-  setInterval(()=>{
+  setInterval(()=>{   /* set search input placeholder properly per second | 每秒检测当前所在页面而设定input的placeholder属性，有待改进 */
    if (this.$route.path === '/music') { return this.placeholder = '搜JPOP试听' }
    if (this.$route.path === '/idolpost') { return this.placeholder = '搜爱豆po文' }
    if (this.$route.path === '/idol') { return this.placeholder = '搜爱豆' }
@@ -29,17 +28,16 @@ export default {
   },1000)
  },
  methods: {
-  /* get input value and current pathname then request server for data */
-  searchit: function(){
+  searchit: function(){   /* get input value and request server for data base on pathname of current page | 获取当前input输入数据根据当前页面pathname进行request获取数据 */
    let q = this.value.trim()
    let loc = this.$route.path
    let url = ''
-   if (loc==='/music') {
+   if (loc==='/music') {  /* 歌曲 */
     url = '/a/find?keyword=' + q
     Vue.gofetch(url, 'SONG')
     return this.value = ''
    }
-   if (loc==='/idolpost') {
+   if (loc==='/idolpost') { /* PO文 */
     url = '/a/find?timeline=' + q
     Vue.gofetch(url, 'IDOL_POST',1)
     return this.value = ''

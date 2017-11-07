@@ -1,10 +1,10 @@
 
 
 /* import components */
-import Headbar from './components/Headbar.vue'
+import HeadBar from './components/HeadBar.vue'
 import store from './store/store'
-import Musicbox from './components/Musicbox.vue'
-import Idolpost from './components/Idolpost.vue'
+import MusicPage from './components/MusicPage.vue'
+import IdolPost from './components/IdolPost.vue'
 //import Idol from './vue/Idol.vue'
 //import Tube from './vue/Tube.vue'
 //import Motion from './vue/Motion.vue'
@@ -22,10 +22,10 @@ const router = new VueRouter({
   {path: '/', component: Home,
    children: [
     { path:'', component: Default },
-    { path: 'music', component: Musicbox },
-    { path: 'idolpost', component: Idolpost },
-    { path: 'mv', component: Default }, /* This component is not ready for github */
-    { path: 'video', component: Default }  /* This component is not ready for github */
+    { path: 'music', component: MusicPage },
+    { path: 'idolpost', component: IdolPost },
+    { path: 'mv', component: Default },
+    { path: 'video', component: Default } 
    ]	
   }
  ]
@@ -33,23 +33,48 @@ const router = new VueRouter({
 
 /* custom Vue global functions | 自定义Vue全局方法 */
 Vue.gofetch = (url, name, is_reverse) => {
- fetch(url).then(response => {
-  return response.json()
- })
- .then(data => {
-  if (data) {
-//   data = JSON.parse(data)
-   if (is_reverse) {
-    return data.reverse().forEach(e => {
-     store.commit('ADD_'+name,e)
-    })
-   } else {
-    return data.forEach(e => {
-     store.commit('ADD_'+name,e)
-    })    
+ if (window.fetch) {
+  fetch(url).then(response => {
+   return response.json()
+  })
+  .then(data => {
+   if (data) {
+ //   data = JSON.parse(data)
+    if (is_reverse) {
+     return data.reverse().forEach(e => {
+      store.commit('ADD_'+name,e)
+     })
+    } 
+    else {
+     return data.forEach(e => {
+      store.commit('ADD_'+name,e)
+     })    
+    }
    }
-  }  
- })       
+   else { console.log('no fetch data') }  
+  })
+ }
+ else {
+/*
+  let xhr = new XMLHttpRequest()
+  if (xhr != null) {
+   xhr.onreadystatechange = stateChange
+   xhr.open('GET', url, true)
+   xhr.send()
+  }
+  else {
+   alert('Not surport for current browser, update please.') 
+  }
+  function stateChange(){
+   if (xhr.readyState == 4){
+    if (xhr.status == 200 || xhr.status == 304) {
+     console.log('Do Something')
+    }
+   }
+  }
+*/
+  alert('Not surport for current browser, update please.')
+ }     
 }
 
 
@@ -57,16 +82,15 @@ Vue.gofetch = (url, name, is_reverse) => {
 new Vue({
   store,
   router,
-  components: { Headbar },
+  components: { HeadBar },
   mounted: function(){
-   /* get data from server when created */
-   Vue.gofetch('/a/find?keyword=ok','SONG')
+   Vue.gofetch('/a/find?keyword=ok','SONG')   /* get data from server when mounted | 组件挂载后从服务器获取数据 */
    Vue.gofetch('/a/find?timeline','IDOL_POST', 1)
-   this.$router.push('music') 
+   this.$router.push('music') /* 转到 music 页面 */
   },
   template: `
    <div id='root'>
-    <headbar/>
+    <head-bar/>
     <router-view></router-view>
    </div>
   `

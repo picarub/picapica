@@ -15,7 +15,7 @@
 
 <script>
 export default {
- name:'idolposttiny',
+ name:'idol-post-tiny',
  data() {
   return {
    list: this.$store.getters.ALL_IDOL_POST,
