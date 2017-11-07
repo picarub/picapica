@@ -31,7 +31,7 @@ const router = new VueRouter({
  ]
 })
 
-/* custom Vue global functions | 自定义Vue全局方法 */
+/* custom Vue global functions | 自定义Vue全局方法 */ 
 Vue.gofetch = (url, name, is_reverse) => {
  if (window.fetch) {
   fetch(url).then(response => {

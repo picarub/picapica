@@ -28,7 +28,7 @@ export default {
   },1000)
  },
  methods: {
-  searchit: function(){   /* get input value and request server for data base on pathname of current page | 获取当前input输入数据根据当前页面pathname进行request获取数据 */
+  searchit: function(){   /* get input value and request server for data base on pathname of current page | 获取当前input输入数据根据当前页面pathname进行request获取数据 */ 
    let q = this.value.trim()
    let loc = this.$route.path
    let url = ''
