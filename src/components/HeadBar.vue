@@ -1,7 +1,7 @@
 <template>
  <header class="header">
   <div class='hb'>
-  <div class="hbb row" style="justify-items:center;height: 3.5em">
+   <div class="hbb row" style="justify-items:center;height: 3.5em">
      <div class="col-6 sm-4 left" style='padding:.3em 0 0 .5em'>
        <router-link to='/music'><img class='hvr-grow' src="/r/l.png" style="height: 3em"/></router-link>
      </div>
