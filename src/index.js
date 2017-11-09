@@ -5,19 +5,17 @@ import HeadBar from './components/HeadBar.vue'
 import store from './store/store'
 import MusicPage from './components/MusicPage.vue'
 import IdolPost from './components/IdolPost.vue'
-//import Idol from './vue/Idol.vue'
-//import Tube from './vue/Tube.vue'
-//import Motion from './vue/Motion.vue'
 
-const Home = { template: "<div style='margin:1em auto;max-width:1200px;text-align:center;'><router-view></router-view></div>" }
+
+const Home = { template: "<div style='margin:1em auto;max-width:1200px;text-align:center;'><router-view></router-view><footer style='color:#777'>(c) 2017 picarub</footer></div>" }
 const Default = { template: "<div class='page'>coming soon ...</div>" }
 
 
-/* setup router | 路由 */ 
+/* 路由 */ 
 Vue.use(VueRouter)
 
 const router = new VueRouter({
- mode: 'history',  /* router working as on a web server */
+ mode: 'history',  
  routes: [
   {path: '/', component: Home,
    children: [
@@ -31,7 +29,7 @@ const router = new VueRouter({
  ]
 })
 
-/* custom Vue global functions | 自定义Vue全局方法 */ 
+/* 自定义Vue全局方法 */ 
 Vue.gofetch = (url, name, is_reverse) => {
  if (window.fetch) {
   fetch(url).then(response => {
@@ -78,13 +76,13 @@ Vue.gofetch = (url, name, is_reverse) => {
 }
 
 
-/* setup root component | 根组件 */
+/* 根组件 */
 new Vue({
   store,
   router,
   components: { HeadBar },
   mounted: function(){
-   Vue.gofetch('/a/find?keyword=ok','SONG')   /* get data from server when mounted | 组件挂载后从服务器获取数据 */
+   Vue.gofetch('/a/find?keyword=ok','SONG')   /* 组件挂载后从服务器获取数据 */
    Vue.gofetch('/a/find?timeline','IDOL_POST', 1)
    this.$router.push('music') /* 转到 music 页面 */
   },

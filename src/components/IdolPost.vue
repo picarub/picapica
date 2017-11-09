@@ -1,9 +1,9 @@
 <template>
  <div class='row page' style="justify-content:center;">
-  <div class='sm-1 md-2 lg-3 invisible-xs visible-xl'></div>
-  <div class='col-12 sm-10 md-8 lg-6 center'>
+  <div class='sm-10 md-15 lg-20 invisible-xs visible-xl'></div>
+  <div class='sm-80 md-70 lg-60 center'>
    <search c='visible-xs col-12' s='margin:.5em 0 -1em 0'/>
-   <transition-group appear tag='div' appear-active-class='magictime vanishIn' enter-active-class='magictime vanishIn' class='col-12' style='margin:0 auto; max-width:600px'>     
+   <transition-group appear tag='div' appear-active-class='' enter-active-class='' style='margin:0 auto; max-width:600px'>     
     <div v-for='po in list' :key='po.post_id' class='post-margin'> 
      <div class='post'>
       <div class='left row' style='align-items:center;padding:1em 0 1em 1em;border-bottom: solid 1px #e9e9e9'>
@@ -24,7 +24,7 @@
     </div>
    </transition-group>  
   </div>
-  <div class='sm-1 md-2 lg-3 invisible-xs visible-xl'></div>
+  <div class='sm-10 md-15 lg-20 invisible-xs visible-xl'></div>
  </div>
 </template>
 

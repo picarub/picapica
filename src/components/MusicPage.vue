@@ -1,18 +1,8 @@
 <template>
   <div class='row page' style="justify-content:center;">
-    <div class='sm-1 md-2 lg-3 invisible-xs visible-xl' style='margin:.75em 0;padding:0 1em;'>
-     <div style='background: #fff;padding: .5em;border: solid 1px #eee'>
-      <a href='/jpop'><img src='http://www.at-x.com/images/program/fdaccd90caae36823ecb25a795e9c5b2.jpg' style='width: 100%'></a>
-      <a href='/jpop'><img src='http://umaru-ani.me/img/story/2zTjDheu/img01.jpg' style='width: 100%'></a>
-     </div>
-    </div>
-    <div class='col-12 sm-10 md-8 lg-6 center'>
-     <search c='col-12 visible-xs' s='padding:0 .75em .5em 0;'/>
+    <div class='sm-90 md-85 lg-80 xl-75 center'>
+     <search c='visible-xs' s='padding:0 .75em .5em 0;'/>
      <music-bar :playplay='playplay' :show='show'/>
-     <footer style='color:#777'>(c) 2017 c.z.y.</footer>
-    </div>
-    <div class='sm-1 md-2 lg-3 invisible-xs visible-xl' style='margin:.8em 0;padding:0 1em'>
-     <idol-post-tiny/>
     </div>
   </div>
 </template>
@@ -20,13 +10,11 @@
 <script>
 import MusicBar from './MusicBar.vue'
 import Search from './Search.vue'
-import IdolPostTiny from './IdolPostTiny.vue'
 export default {
  name: 'music-page',
  components: {
   MusicBar,
-  Search,
-  IdolPostTiny
+  Search
  },
  beforeDestroy: function(){
   this.music.pause()   /* 转到其它页面时暂停播放 */
