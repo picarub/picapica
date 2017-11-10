@@ -10,10 +10,10 @@
       <div style="display: flex;align-items: center;">
         <div class="sm-30 invisible-xs"></div>
         <div class="col-50 sm-35">
-          <router-link to='/idolpost'><img class='hvr-grow' src='/r/5.png' style='height:2.5em'/>看微博</router-link>
+          <router-link to='/music'><img class='hvr-grow' src='/r/maru.png' style='height:2.75em'/>听音乐</router-link>
         </div>
         <div class="col-50 sm-35">
-          <router-link to='/music'><img class='hvr-grow' src='/r/maru.png' style='height:2.5em'/>听音乐</router-link>
+          <router-link to='/idolpost'><img class='hvr-grow' src='/r/5.png' style='height:2.75em'/>看PO文</router-link>
         </div>
       </div>
      </div>

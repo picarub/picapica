@@ -3,8 +3,8 @@
 /* import components */
 import HeadBar from './components/HeadBar.vue'
 import store from './store/store'
-import MusicPage from './components/MusicPage.vue'
-import IdolPost from './components/IdolPost.vue'
+import MusicPage from './components/MusicPage/MusicPage.vue'
+import IdolPost from './components/IdolPostPage/IdolPostPage.vue'
 
 
 const Home = { template: "<div style='margin:1em auto;max-width:1200px;text-align:center;'><router-view></router-view><footer style='color:#777'>(c) 2017 picarub</footer></div>" }
@@ -21,9 +21,7 @@ const router = new VueRouter({
    children: [
     { path:'', component: Default },
     { path: 'music', component: MusicPage },
-    { path: 'idolpost', component: IdolPost },
-    { path: 'mv', component: Default },
-    { path: 'video', component: Default } 
+    { path: 'idolpost', component: IdolPost }
    ]	
   }
  ]

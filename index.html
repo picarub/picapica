@@ -5,6 +5,7 @@
  <title>picapica</title>
  <meta name='picapica' content='picapica'>
  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+ <!--link rel='icon' href='http://umaru-ani.me/favicon.ico'-->
  <link rel='icon' href='http://umaru-ani.me/favicon.ico'>
  <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
  <script src="https://cdn.bootcss.com/vue/2.4.4/vue.min.js"></script>
@@ -60,7 +61,8 @@ body {
  z-index: 99999;
 }
 .hb {
-  max-width:1200px;
+  max-width:900px;
+  height: 3.5em;
   margin: 0 auto;
   background: #fff;
   text-align: center;
@@ -84,7 +86,7 @@ body {
 }
 .rounded { border-radius: .3em; }
 .circle { border-radius: 50%; }
-.col-30,.col-35,.col-50,.col-25,.col-33,.sm-10,.sm-25,.sm-30,.sm-33.sm-35,.sm-50,.sm-80,.sm-90,.md-15,.md-20,.md-25,.md-80,.md-85,.lg-20,.lg-60,.lg-80,.xl-20,.xl-75 {
+.col-30,.col-35,.col-50,.col-25,.col-33,.sm-5,.sm-10,.sm-25,.sm-30,.sm-33.sm-35,.sm-50,.sm-80,.sm-90,.md-15,.md-20,.md-25,.md-80,.md-85,.lg-10,.lg-20,.lg-60,.lg-80,.xl-20,.xl-75 {
   box-sizing: border-box;
   -webkit-box-flex: 0;
   -ms-flex: 0 1 auto;
@@ -156,6 +158,10 @@ body {
   .invisible-xs { display: block; }
   .visible-xs { display: none; }
   .visible-xl { visibility: hidden; }
+  .sm-5 {
+    flex: 0 1 5%;
+    width: 5%;
+  }
   .sm-10 {
     flex: 0 1 10%;
     width: 10%;
@@ -220,6 +226,10 @@ body {
 }
 
 @media (min-width: 992px) {
+  .lg-10 {
+    flex: 0 1 10%;
+    width: 10%;
+  }
   .lg-25 {
     flex: 0 1 25%;
     width: 25%;
