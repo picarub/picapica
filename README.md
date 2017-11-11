@@ -7,4 +7,4 @@
 
  surf on 127.0.0.1  (by default using port 80)
 
-[Home Page](https://picapica.pw)
+[Home Page](https://picapica.pw/a)
