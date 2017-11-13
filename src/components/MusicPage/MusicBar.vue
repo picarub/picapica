@@ -36,7 +36,7 @@
     <div class="box-big">
 
      <div class='cover-big' @click='playplay(ea.url, i)'>       
-      <img v-if='ea.imgUrl' :src='ea.imgUrl' class='rounded cover-big'/>
+      <img v-if='ea.imgUrl' :src='ea.imgUrl' class='rounded cover-big img-cover'/>
       <img v-else src='/r/5.png' class='rounded img-cover w-100'/>
       <div class='right icon-play'>
         <i v-show='!show[i]' style='display: block;' class='fa fa-play fa-3x'/>
@@ -153,10 +153,5 @@ export default {
 }
 .img-cover:hover {
   transform: scale(1.25);
-  -webkit-transition: transform 1s;
-      -ms-transition: transform 1s;
-     -moz-transition: transform 1s;
-       -o-transition: transform 1s;
-          transition: transform 1s;
 }
 </style>
