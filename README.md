@@ -1,10 +1,13 @@
 ![](https://picapica.pw/r/l.png)
 # picapica
-### a website using Vue, Vue-router and Vuex
+### A responsive web page built on Vue, Vue-router and Vuex
 
     git clone https://github.com/picarub/picapica.git
     cd picapica && npm start
+after settup completed, surf on:
+    localhost    (or)
+    127.0.0.1    (port 80 by default)
 
- surf on 127.0.0.1  (by default using port 80)
 
-[Home Page](https://picapica.pw)
+[Home Page: https://picapica.pw](https://picapica.pw)
+License: MIT 

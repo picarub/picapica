@@ -15,9 +15,7 @@ app.get(['/','/music','/idolpost','/idol','/mv','/video'], (req, res) => {
  return res.sendFile('index.html',{root: __dirname})       
 })
 
-app.get(['/jpop'], (req, res) => {
- return res.sendFile('index.html',{root: __dirname})       
-})
+
 
 app.get('/a/find', async (req, res) => {
  let q = req.query

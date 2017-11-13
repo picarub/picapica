@@ -15,7 +15,7 @@ const Default = { template: "<div class='page'>coming soon ...</div>" }
 Vue.use(VueRouter)
 
 const router = new VueRouter({
- mode: 'history',  
+ mode: 'history',
  routes: [
   {path: '/', component: Home,
    children: [
@@ -28,7 +28,7 @@ const router = new VueRouter({
 })
 
 /* 自定义Vue全局方法 */ 
-Vue.gofetch = (url, name, is_reverse) => {
+Vue.gofetch = (url, name, is_reverse, is_local_storage) => {
  if (window.fetch) {
   fetch(url).then(response => {
    return response.json()
@@ -36,6 +36,7 @@ Vue.gofetch = (url, name, is_reverse) => {
   .then(data => {
    if (data) {
  //   data = JSON.parse(data)
+    if (is_local_storage) localStorage.setItem(name, JSON.stringify(data))
     if (is_reverse) {
      return data.reverse().forEach(e => {
       store.commit('ADD_'+name,e)
@@ -80,9 +81,13 @@ new Vue({
   router,
   components: { HeadBar },
   mounted: function(){
-   Vue.gofetch('/a/find?keyword=ok','SONG')   /* 组件挂载后从服务器获取数据 */
+   if (localStorage.SONG && localStorage.SONG != '') {
+    var songs = JSON.parse(localStorage.getItem('SONG'))
+    songs.forEach(e => ( store.commit('ADD_SONG',e) ))
+   } 
+   else Vue.gofetch('/a/find?keyword=ok','SONG',0,1)   /* 组件挂载后从服务器获取数据 */
    Vue.gofetch('/a/find?timeline','IDOL_POST', 1)
-   this.$router.push('music') /* 转到 music 页面 */
+//    this.$router.push('a/music') /* 转到 music 页面 */
   },
   template: `
    <div id='root'>

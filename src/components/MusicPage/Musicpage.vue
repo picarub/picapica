@@ -1,5 +1,5 @@
 <template>
-  <div class='row page' style="justify-content:center;">
+  <div class='row page justify-center'>
     <div class='sm-90 md-85 lg-80 center' style='max-width:900px'>
      <search c='visible-xs' s='padding:0 .75em .5em 0;'/>
      <music-bar :playplay='playplay' :show='show'/>
@@ -22,7 +22,7 @@ export default {
  data() {
   return {
    volume: .4,
-   show: Array(500).fill(false),  /* 歌曲播放提示动画，初始值为false不显示，歌曲列表数组总长度限制在500个 */
+   show: Array(500).fill(false),  /* 歌曲播放提示动画，初始值为false不显示，数组长度500，超出部分不具播放功能，需作处理 */
    playing: Array(500).fill(false), /* 歌曲是否在播放的状态，初始值长度为500，填充了 false 布尔值的数组 */
    music: new Audio()   /* HTML5 Audio组件 */
   }

@@ -1,31 +1,39 @@
 <template>
- <div class='row page' style="justify-content:center;">
-  <div class='sm-10 md-15 lg-20 invisible-xs visible-xl'></div>
-  <div class='sm-80 md-70 lg-60 center'>
-   <search c='visible-xs col-12' s='margin:.5em 0 -1em 0'/>
-   <transition-group appear tag='div' appear-active-class='' enter-active-class='' style='margin:0 auto; max-width:600px'>     
-    <div v-for='po in list' :key='po.post_id' class='post-margin'> 
-     <div class='post'>
-      <div class='left row' style='align-items:center;padding:1em 0 1em 1em;border-bottom: solid 1px #e9e9e9'>
-       <a target='_blank' :href='po.twitter'><img :src='po.icon' class='circle' style='max-width:32px;border:solid 1px #e9e9e9'/></a>
-       <a target='_blank' :href='po.twitter' style='font-weight:bolder;color: #000'>&nbsp;&nbsp;{{po.name}}</a>                       
+  <div class='row page justify-center'>
+    <div class='sm-10 md-15 lg-20 invisible-xs visible-xl'></div>
+
+    <div class='sm-80 md-70 lg-60 center'>
+      <search c='visible-xs col-12' s='padding:.5em .5em 0 0'/>
+
+      <div class="instagram">     
+        <div v-for='po in list' :key='po.post_id' class='post-margin'>    
+         <div class='post'>
+
+           <div class='left row ins-icon'>
+             <a target='_blank' :href='po.twitter'>
+               <img :src='po.icon' class='circle ins-icon-img'/>
+             </a>
+             <a class="ins-name" target='_blank' :href='po.twitter'>&nbsp;&nbsp;{{po.name}}</a>                       
+           </div>
+
+           <div style='background:#fff'>
+             <img class="w-100" :src='po.thumbnail_url' @dblclick='likeit(po.thumbnail_url)'/>
+           </div>
+
+           <div class='ins-content left'>
+             <div v-html='htmlstr(po.content)'></div>
+             <div class="ins-time">{{timetonow(po.post_date)}}</div>
+             <hr class='visible-xs ins-seperate'/>        
+           </div>
+           
+         </div>
       </div>
-      <div style='background:#fff'>
-       <img :src='po.thumbnail_url' style='width:100%' @dblclick='likeit(po.thumbnail_url)'/>
-      </div> 
-      <div style='padding: 1em;' class='left'>
-        <div v-html='htmlstr(po.content)'></div>
-        <div style='color: #aaa;font-size: .75em'>
-         {{timetonow(po.post_date)}}
-        </div>
-        <hr class='visible-xs' style='width:100%;height:0;border:0; border-top:solid 1px #e6e6ea;margin-top:2.5em'/>        
-      </div>
-     </div>
+
+      </div>  
     </div>
-   </transition-group>  
+
+    <div class='sm-10 md-15 lg-20 invisible-xs visible-xl'></div>
   </div>
-  <div class='sm-10 md-15 lg-20 invisible-xs visible-xl'></div>
- </div>
 </template>
 
 <script>
@@ -38,11 +46,11 @@ export default {
   return {
    orig: this.$store.getters.ALL_IDOL_POST,   /* 从vuex中获取的初始数组 */
    list: this.$store.getters.ALL_IDOL_POST,   /* 实际渲染数组，根据$watch自动变化 */
-   now: moment()  /* 组件创建时时刻，即现在 */
+   now: moment()  /* 组件创建时时间 */
   }
  },
  watch: {
-  orig: function(){   /* avoid duplicate items | 去除重复的数据子集 */
+  orig: function(){   /* 去除重复的数据 */
    this.list = this.orig.filter(function(item, index, self) {
     return self.findIndex(function(t){ return t.post_id === item.post_id }) === index
    })
@@ -61,3 +69,43 @@ export default {
  }
 }
 </script>
+
+<style scoped>
+.instagram {
+  margin:0 auto; 
+  max-width:600px;
+}
+.ins-icon {
+  padding:1em 0 1em 1em;
+  align-items:center;
+  border-bottom: solid 1px #e9e9e9;
+}
+
+.ins-icon-img {
+  max-width:32px;
+  border:solid 1px #e9e9e9;
+}
+
+.ins-name {
+  font-weight:bolder;
+  color: #000;
+}
+
+.ins-content {
+  padding: 1em;
+}
+
+.ins-time {
+  color: #aaa;
+  font-size: .75em;
+}
+
+.ins-seperate {
+  margin-top:2.5em;
+  width:100%;
+  height:0;
+  border:0; 
+  border-top:solid 1px #e6e6ea;
+}
+
+</style>
