@@ -87,7 +87,7 @@ new Vue({
    } 
    else Vue.gofetch('/a/find?keyword=ok','SONG',0,1)   /* 组件挂载后从服务器获取数据 */
    Vue.gofetch('/a/find?timeline','IDOL_POST', 1)
-//    this.$router.push('a/music') /* 转到 music 页面 */
+  this.$router.push('music') /* 转到 music 页面 */
   },
   template: `
    <div id='root'>

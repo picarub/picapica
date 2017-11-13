@@ -9,7 +9,7 @@
     localhost    or
     127.0.0.1    (port 80 by default)
 
-[Home Page: https://picapica.pw](https://picapica.pw)
+[Home Page: https://picapica.pw](https://picapica.pw/a)
 #### License: MIT 
 
 
